@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=10.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #ffd9d6;
+        }
+
+        .centru {
+            width: 100%;
+            height: 150px;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            margin: 0;
+            padding: 0;
+            background-color: #ffeef5;
+        }
+
+        #h3 {
+            margin-top: 40px;
+            background-color: #ff786e;
+            width: 120px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class='centru'> Magazin Beauty </h1>
+    <h1 id="h3">Produse</h1>
+    <table style="width:90%">
+        <tr>
+            <th>ID_produs</th>
+            <th>Denumire_produs</th>
+            <th>An_produs</th>
+            <th>Puncte_produs</th>
+            <th>Pret_produs</th>
+            <th>Brand_produs</th>
+
+        </tr>
+        {% for produs in bdprodus %}
+        <tr>
+            <td>{{produs["ID_produs"]}}</td>
+            <td>{{produs["Denumire_produs"]}}</td>
+            <td>{{produs["An_produs"]}}</td>
+            <td>{{produs["Puncte_produs"]}}</td>
+            <td>{{produs["Pret_produs"]}}</td>
+            <td>{{produs["Brand_produs"]}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <!-- ADAUGARE PRODUS IN SITE HTML-->
+    <h1 id="h5">Adauga Produs</h1>
+    <br><br><br>
+    <form class="was-validated" method="POST" action="/add_PRODUS">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+
+                <label for="validationServer01">Denumire_produs</label>
+                <input name="Denumire_produs" type="text" class="form-control is-valid" id="validationServer01" placeholder="ex. ..." required>
+
+                <label for="validationServer01">An_produs</label>
+                <input name="An_produs" type="text" class="form-control is-valid" id="validationServer01" placeholder="ex. ..." required>
+
+                <label for="validationServer01">Puncte_produs</label>
+                <input name="Puncte_produs" type="text" class="form-control is-valid" id="validationServer01" placeholder="ex. ..." required>
+
+                <label for="validationServer01">Pret_produs</label>
+                <input name="Pret_produs" type="text" class="form-control is-valid" id="validationServer01" placeholder="ex. ..." required>
+
+                <label for="validationServer01">Brand_produs</label>
+                <input name="Brand_produs" type="text" class="form-control is-valid" id="validationServer01" placeholder="ex. ..." required>
+
+            </div>
+        </div>
+        </br></br>
+        <button class="btn btn-primary" type="submit">Adauga Produs</button>
+        </br></br>
+    </form>
+
+    <!-- STERGERE PRODUS IN SITE HTML-->
+    <br><br><br>
+    <h1 id="h6">Stergere Produs</h1>
+    <br><br><br>
+    <form class="was-validated" method="POST" action="/delete_PRODUS">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="validationServer01">Denumire_produs</label>
+                <input name="Denumire_produs" type="text" class="form-control is-valid" id="validationServer01" placeholder="ex. ..." required>
+            </div>
+        </div>
+        </br></br>
+        <button class="btn btn-primary" type="submit">Stergere Produs</button>
+        </br></br>
+    </form>
+
+
+    <a href="bd_CLIENT"><button class="tablink">CLIENT</button></a>
+    <a href="bd_PRODUS"><button class="tablink">PRODUS</button></a>
+    <a href="bd_RESTANTA"><button class="tablink">RESTANTA</button></a>
+    <a href="bd_PROMOTIE"><button class="tablink">PROMOTIE</button></a>
+
+
+</body>
+</html>

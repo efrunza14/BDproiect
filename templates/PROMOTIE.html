@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=10.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #d0c0ff;
+        }
+
+        .centru {
+            width: 100%;
+            height: 150px;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            margin: 0;
+            padding: 0;
+            background-color: #ffeef5;
+        }
+
+        #h3 {
+            margin-top: 40px;
+            background-color: #8e7cc3;
+            width: 120px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class='centru'> Magazin Beauty </h1>
+    <h1 id="h3">Promotie</h1>
+    <table style="width:100%">
+        <tr>
+            <th>Nr_inregistrare</th>
+            <th>Puncte</th>
+            <th>Valoare_promotie</th>
+
+        </tr>
+        {% for promotie in bdpromotie %}
+        <tr>
+            <td>{{promotie["Nr_inregistrare"]}}</td>
+            <td>{{promotie["Puncte"]}}</td>
+            <td>{{promotie["Valoare_promotie"]}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <!-- ADAUGARE PROMOTIE IN SITE HTML-->
+    <h1 id="h4">Adauga Promotie</h1>
+    <br><br><br>
+    <form class="was-validated" method="POST" action="/add_PROMOTIE">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+
+                <label for="validationServer01">Nr_inregistrare</label>
+                <input name="Nr_inregistrare" type="text" class="form-control is-valid" id="validationServer01" placeholder="ex. ..." required>
+
+                <label for="validationServer01">Puncte</label>
+                <input name="Puncte" type="text" class="form-control is-valid" id="validationServer01" placeholder="ex. ..." required>
+
+                <label for="validationServer01">Valoare_promotie</label>
+                <input name="Valoare_promotie" type="text" class="form-control is-valid" id="validationServer01" placeholder="ex. ..." required>
+
+            </div>
+        </div>
+        </br></br>
+        <button class="btn btn-primary" type="submit">Adauga Promotie</button>
+        </br></br>
+    </form>
+
+    <!-- STERGERE PROMOTIE IN SITE HTML-->
+    <br><br><br>
+    <h1 id="h5">Sterge Promotie</h1>
+    <br><br><br>
+    <form class="was-validated" method="POST" action="/delete_PROMOTIE">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="validationServer01">Nr_inregistrare</label>
+                <input name="Nr_inregistrare" type="text" class="form-control is-valid" id="validationServer01" placeholder="ex. ..." required>
+
+            </div>
+        </div>
+        </br></br>
+        <button class="btn btn-primary" type="submit">Sterge Promotie</button>
+        </br></br>
+    </form>
+    <!--- UPDATE PROMOTIE -->
+    <br><br><br>
+    <h1 id="h7">UPDATE Promotie</h1>
+    <br><br><br>
+    <form class="was-validated" method="POST" action="/update_PROMOTIE">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="validationServer01">Nr_inregistrare</label>
+                <input name="Nr_inregistrare" type="text" class="form-control is-valid" id="validationServer01" placeholder="ex. ..." required>
+                <label for="validationServer01">Valoare_promotie</label>
+                <input name="Valoare_promotie" type="text" class="form-control is-valid" id="validationServer01" placeholder="ex. ..." required>
+
+            </div>
+        </div>
+        </br></br>
+        <button class="btn btn-primary" type="submit">Update Promotie</button>
+        </br></br>
+    </form>
+
+
+    <a href="bd_CLIENT"><button class="tablink">CLIENT</button></a>
+    <a href="bd_PRODUS"><button class="tablink">PRODUS</button></a>
+    <a href="bd_RESTANTA"><button class="tablink">RESTANTA</button></a>
+    <a href="bd_PROMOTIE"><button class="tablink">PROMOTIE</button></a>
+
+</body>
+</html>
